@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Just Programming</title>
+  <title>使用SFML+ImGui实现花札游戏 | Just Programming</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="花札是流行于日韩的一种传统卡牌游戏，游戏规则简单，玩法丰富。我本次制作的游戏是基于koikoi规则的。[GitHub链接]https://github.com/DEAGS3000/NewHanafuda 最终效果：  GUI就临时用ImGui凑合一下了，目前没精力自己制作素材。 规则简介要开发花札的游戏，首先必须了解它的规则。koikoi是一种很流行的规则，由两名玩家对战。 月份花札有12个月份，">
+<meta name="keywords" content="游戏编程,C++,SFML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/07/24/hello-world/index.html">
+<meta property="og:title" content="使用SFML+ImGui实现花札游戏">
+<meta property="og:url" content="http://yoursite.com/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/index.html">
 <meta property="og:site_name" content="Just Programming">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-07-24T12:40:03.470Z">
+<meta property="og:description" content="花札是流行于日韩的一种传统卡牌游戏，游戏规则简单，玩法丰富。我本次制作的游戏是基于koikoi规则的。[GitHub链接]https://github.com/DEAGS3000/NewHanafuda 最终效果：  GUI就临时用ImGui凑合一下了，目前没精力自己制作素材。 规则简介要开发花札的游戏，首先必须了解它的规则。koikoi是一种很流行的规则，由两名玩家对战。 月份花札有12个月份，">
+<meta property="og:image" content="http://yoursite.com/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/效果.gif">
+<meta property="og:image" content="http://yoursite.com/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/1月牌.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/光牌.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/短册牌.jpg">
+<meta property="og:updated_time" content="2017-07-27T05:54:23.568Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="使用SFML+ImGui实现花札游戏">
+<meta name="twitter:description" content="花札是流行于日韩的一种传统卡牌游戏，游戏规则简单，玩法丰富。我本次制作的游戏是基于koikoi规则的。[GitHub链接]https://github.com/DEAGS3000/NewHanafuda 最终效果：  GUI就临时用ImGui凑合一下了，目前没精力自己制作素材。 规则简介要开发花札的游戏，首先必须了解它的规则。koikoi是一种很流行的规则，由两名玩家对战。 月份花札有12个月份，">
+<meta name="twitter:image" content="http://yoursite.com/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/效果.gif">
   
     <link rel="alternative" href="/atom.xml" title="Just Programming" type="application/atom+xml">
   
@@ -157,35 +163,126 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-使用SFML-ImGui实现花札游戏（一、简介）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      使用SFML+ImGui实现花札游戏
     </h1>
   
 
         
-        <a href="/2017/07/24/hello-world/" class="archive-article-date">
-  	<time datetime="2017-07-24T12:40:03.469Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-24</time>
+        <a href="/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/" class="archive-article-date">
+  	<time datetime="2017-07-27T04:08:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>花札是流行于日韩的一种传统卡牌游戏，游戏规则简单，玩法丰富。我本次制作的游戏是基于koikoi规则的。[GitHub链接]<a href="https://github.com/DEAGS3000/NewHanafuda" target="_blank" rel="external">https://github.com/DEAGS3000/NewHanafuda</a></p>
+<p>最终效果：</p>
+<p><img src="/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/效果.gif" alt="效果"></p>
+<p>GUI就临时用ImGui凑合一下了，目前没精力自己制作素材。</p>
+<h2 id="规则简介"><a href="#规则简介" class="headerlink" title="规则简介"></a>规则简介</h2><p>要开发花札的游戏，首先必须了解它的规则。koikoi是一种很流行的规则，由两名玩家对战。</p>
+<h3 id="月份"><a href="#月份" class="headerlink" title="月份"></a>月份</h3><p>花札有12个月份，每个月份一共4张牌，共48张牌。每个月份的4张牌拥有相同的背景图案，如1月是松：</p>
+<p><img src="/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/1月牌.jpg" alt=""></p>
+<p>以下是12个月份与植物的对应：</p>
+<table>
+<thead>
+<tr>
+<th>月份</th>
+<th>植物</th>
+<th>月份</th>
+<th>植物</th>
+<th>月份</th>
+<th>植物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一月</td>
+<td>松</td>
+<td>五月</td>
+<td>菖蒲</td>
+<td>九月</td>
+<td>菊</td>
+</tr>
+<tr>
+<td>二月</td>
+<td>梅</td>
+<td>六月</td>
+<td>牡丹</td>
+<td>十月</td>
+<td>枫</td>
+</tr>
+<tr>
+<td>三月</td>
+<td>樱</td>
+<td>七月</td>
+<td>荻</td>
+<td>十一月</td>
+<td>柳</td>
+</tr>
+<tr>
+<td>四月</td>
+<td>藤</td>
+<td>八月</td>
+<td>麦芒</td>
+<td>十二月</td>
+<td>桐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="回合"><a href="#回合" class="headerlink" title="回合"></a>回合</h3><p>开局时，双方玩家各有8张手牌，场上也有8张场牌。由“亲”也就是庄家先手。在每一回合中，玩家要打出手中的一张牌，并从牌堆抽一张牌打出。打出一张牌后有如下四种情况：</p>
+<ol>
+<li>场上没有与打出的牌相同月份的牌，打出的牌加入场牌。</li>
+<li>场上有一张与打出的牌相同月份的牌，这两张牌被“赢取”，放入玩家的赢牌区。</li>
+<li>场上有两张与打出的牌相同月份的牌，玩家要选择其中一张牌，与打出的牌一起被赢取。</li>
+<li>场上有三张与打出的牌相同月份的牌，则这四张牌全部被玩家赢取。</li>
+</ol>
+<p>以上规则对玩家从手牌中打出的牌与从牌堆抽取并打出的牌同样适用。这之后轮到下一玩家的回合。</p>
+<h3 id="类型与扎役"><a href="#类型与扎役" class="headerlink" title="类型与扎役"></a>类型与扎役</h3><p>在花札中，卡片之间除了月份的区别外，还有类型的区别，而这种类型也是达成“扎役”（即某种赢牌组合，类似麻将中的各种胡牌）的关键。共有4种类型：</p>
+<ol>
+<li><p>光：共有5张，分别是松间鹤、樱上幕帘、桐上凤凰、芒上月、柳间小野道风。其中柳间小野道风最特殊，又称“雨光”。</p>
+<p><img src="/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/光牌.jpg" alt="5张光牌"></p>
+</li>
+<li><p>短册：共有10张，其中红色带文字的是赤短，不带文字的是普通短册，青色的是青短。</p>
+<p><img src="/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/短册牌.jpg" alt="短册牌"></p>
+</li>
+<li><p>种牌：共10张，即除了光牌之外的所有带有动物图案的牌以及蒲间八桥、菊上杯、柳雷雨鼓。</p>
+</li>
+<li><p>皮牌，共23张，只有植物图案的牌。</p>
+</li>
+</ol>
+<p>玩花札koikoi的核心目标即努力达成札役，并阻止对方达成札役。通用规则中的札役如下：</p>
+<ul>
+<li>五光：5张光牌全部到手。</li>
+<li>四光：除雨光外的4张光牌。</li>
+<li>雨四光：包含雨光的4张光牌。</li>
+<li>三光：不包含雨光的3张光牌。</li>
+<li>猪鹿蝶：荻间猪、枫间鹿、牡丹上蝴蝶。</li>
+<li>赤短：三张带字的赤色短册。</li>
+<li>青短：三张带字的青色短册。</li>
+<li>短册：5张以上任意短册。</li>
+<li>种：5张以上任意种牌。</li>
+<li>皮：10张以上任意皮牌。</li>
+<li>手四：游戏开始时受众即有四张同月，相当于天胡。</li>
+</ul>
+<p>以下是一些地方性规则：</p>
+<ul>
+<li>花见酒：樱上幕帘、菊上杯。</li>
+<li>月见酒：芒上月、菊上杯。</li>
+<li>花月酒/饮：樱上幕帘、芒上月、菊上杯。</li>
+<li>月札：当月的4张牌全部到手。</li>
+</ul>
+<p>其中，短册、种、皮均数增长型扎役，超过基准数目的部分会获得额外的奖励。</p>
+<h3 id="koikoi"><a href="#koikoi" class="headerlink" title="koikoi"></a>koikoi</h3><p>当一个玩家达成了一个扎役或者增长了一个已有的札役，就可以选择继续游戏（koikoi）还是结束游戏。如果选择继续游戏而之后对方达成了扎役，那自己之前达成的札役就都不算数了，koikoi的魅力就在这里，是决定小富即安还是赌一把博大的，就看你自己的咯。如果koikoi之后双方都没有达成新的札役，那koikoi的玩家之前的札役还是有效的。</p>
+<h3 id="游戏流程"><a href="#游戏流程" class="headerlink" title="游戏流程"></a>游戏流程</h3><p>首先决定亲与子，之后按照“子-场-亲”的顺序发牌。发牌之后要先判断一下有没有人手四，是不是要koikoi。接下来就是亲先手，轮流出牌了。当一局游戏结束后，结算钱数，进入下一个月份的新游戏</p>
+<p>简介就讲到这里，下篇文章开始讲游戏具体的实现思路。</p>
 
       
 
@@ -215,6 +312,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">游戏编程,C++,SFML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -265,7 +373,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/24/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/27/使用SFML-ImGui实现花札游戏（一、简介）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,15 +387,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/24/第一篇博文/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          第一篇博文
-        
-      </div>
-    </a>
   
+    <a href="/2017/07/24/第一篇博文/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第一篇博文</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
