@@ -208,7 +208,7 @@ a:hover {
 	overflow: hidden;
 	width: 920px;
 	padding: 20px 40px 20px 40px;
-	background: url(images/img03.jpg) no-repeat left bottom;
+	background: url('../images/img03.jpg') no-repeat left bottom;
 }
 /* Content */
 
