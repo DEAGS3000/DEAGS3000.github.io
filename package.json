@@ -1,0 +1,14 @@
+{
+  "name": "pelican",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Pelican based blog.",
+  "main": "index.js",
+  "scripts": {
+    "build": "pelican ./ -o public -s publishconf.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
