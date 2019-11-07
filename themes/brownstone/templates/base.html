@@ -31,12 +31,12 @@ Released   : 20100928
                                 {% endblock %}
 				<div id="sidebar">
 					<div id="logo">
-						<h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+						<h1><a href={% if SITEURL != "" %}{{ SITEURL }}{% else %}"/"{% endif %}>{{ SITENAME }}</a></h1>
 						{% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}
 					</div>
 					<div id="menu">
 						<ul>
-							<li {% if page_name == "index" %}class="current_page_item"{% endif %}><a href="{{ SITEURL }}">Home</a></li>
+							<li {% if page_name == "index" %}class="current_page_item"{% endif %}><a href={% if SITEURL != "" %}{{ SITEURL }}{% else %}"/"{% endif %}>Home</a></li>
 							<li {% if page_name == "archives" %}class="current_page_item"{% endif %}><a href="{{ SITEURL }}/archives.html">Archives</a></li>
 							{% if DISPLAY_PAGES_ON_MENU %}
                                                         {% for page in pages %}
