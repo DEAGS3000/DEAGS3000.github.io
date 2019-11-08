@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Brown Stone  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20100928
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>梦呓 - 算法</title>
+<link href="../theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="../" type="application/atom+xml" rel="alternate" title="梦呓 ATOM Feed" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+ 
+        
+				<div id="content">
+					<div class="post">
+						<h2 class="title"><a href="../xun-huan-sai-ri-cheng-biao-wen-ti-xiang-jie.html">循环赛日程表问题详解</a></h2>
+						<p class="meta"><span class="date">At 三 14 六月 2017 </span><span class="posted">By <a href="#">IllusiveMan</a></span><span>&nbsp; | Category : <a href="../category/suan-fa.html">算法</a></span></p>
+					<p class="meta">Tags : <span><a href="../tag/suan-fa.html">算法</a> / </span>
+</p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <p>学校开了算法分析与设计课，分治法中讲了循环赛日程表问题。这个问题思路倒不难，主要是程序写起来有点绕，而且书上的程序就是一坨shit。所以我试着自己写篇文章，希望对同样被教材上的程序坑到的同学们有所帮助。</p>
+<ol class="arabic simple">
+<li>问题</li>
+</ol>
+<p>设有n=2k个运动员要进行循环比赛，现要设计一个满足以下要求的比赛日程表：</p>
+<ol class="arabic simple">
+<li>每个选手必须与其他n-1个选手各比赛一次。</li>
+<li>每个选手一天只能比赛一次。</li>
+<li>循环赛一共需要进行n-1天。</li>
+</ol>
+<ol class="arabic simple" start="2">
+<li>思路</li>
+</ol>
+<p>这部分教材上讲得也还可以。无非就是分治法：要知道一堆人两两比赛的日程不容易，但对半分下去，直到分成两个人比赛，那么日程安排就简单了，直接让这两个人比赛就行了。</p>
+<p>由于条件里已经给出，人数一定是2k，所以分到最后就会是许多的二人组。</p>
+<p>一个二人组的比赛日程表如下：</p>
+<img alt="" src="../image/algorithm_1/01.jpg" />
+<p>由于分组的时候，二人组里的两个人的编号一定是连续的，所以多个二人组的日程表直接上下合并即可：</p>
+<img alt="" src="../image/algorithm_1/02.jpg" />
+<p>从图中的箭头可以看出，日程表有这样一个特性：左下角的一部分等于右上角的部分，左上角的部分等于右下角的部分。</p>
+<p>接下来完整的日程表也一样：</p>
+<img alt="" src="../image/algorithm_1/13.jpg" />
+<p>只不过这次对角复制的范围扩大了。也就是说，每次左下角的值赋给右上角，左上角的值赋给右下角的时候，四个区域是以当前表的大小来确定的，即正好填满这个表的四个区域。</p>
+<p>上边的第一行是天数，可以不用管。</p>
+<p>于是我们就得到了求解这个问题的方法：先分出一堆二人组，两两比赛，将他们的日程表合并起来，然后不断将左下区间的值复制到右上区间，左上区间的值复制到右下区间即可。</p>
+<ol class="arabic simple" start="3">
+<li>程序设计</li>
+</ol>
+<p>这个问题坑就坑在这儿。思路很简单，但就是代码比较绕。课本上的代码变量命名什么的一团糟。我自己重新整理的思路如下：</p>
+<p>设选手数为num。</p>
+<p>首先第一列肯定是固定的选手编号，先填充好就是了。天数在这个处理中没有太大用，可以无视。但为了在取坐标的时候，数组的下标值能在两个轴向上对应（即避免一个坐标轴上0开始索引，另一个1开始索引），我们还是使用（num+1）*num大小的二维数组。</p>
+<p>有了第一列，我们就可以开始根据第一列的值不断构造后面的数据。但是怎么构造呢？我们使用如下的方式：</p>
+<p>使用变量s(scale)来控制每次对角复制区域的规模；</p>
+<p>规模是从小变大的，在num能容得下不止一个此规模的区域时，要对这些区域进行遍历。</p>
+<p>使用变量p(part)来控制每次处理的区域的左上角坐标。</p>
+<p>由于规模s大于1时，p只能指明这个区域的起始位置（左上角），还需要对整个区域进行填充，所以必须对区域内进行遍历。</p>
+<p>使用变量i、j来遍历一个区域中的所有位置。</p>
+<p>下面的图示更形象地展示了这些变量的含义：</p>
+<img alt="" src="../image/algorithm_1/4.jpg" />
+<p>上图中，圆角矩形表示受s控制的区域范围。它的意思是，将左上角或左下角的圆角矩形范围这么大一个区域的内容搬过来。</p>
+<p>s只控制现在开始要搬多大范围的，具体这么一个数据块摆在哪里，s控制不了。这个由p来控制。上图中所有红色圆圈，代表它所在的操作区域（圆角矩形）的位置，这个位置代表着这个区域的左上角的位置。即，对于每个规模的s，使用p遍历这个规模的所有操作区域，进行搬运工作。</p>
+<p>s和p定义了我们要搬运多大的块，搬到哪里，一个块中的所有坐标的具体搬运工作由i和j来控制。</p>
+<p>i和j用来遍历一个操作区域中的所有位置，那么我们怎么知道要把哪里的数据搬到这些位置呢？</p>
+<p>我们首先要确定的是，搬左上角的数据，还是左下角的数据。我采取的方法是：通过(p+s-1)/s的值是奇数还是偶数来判断。因为对于同一列操作区域，也就是一个s水平下的操作区域，由上到下的搬运对象依次是：左下、左上、左下这样的。(p+s-1)/s确定了当前操作区域在这个规模的所有操作区域里，由上到下排第几。奇数就是搬左下的数据，偶数就是搬左上的数据。</p>
+<p>接下来是操作区域内具体位置的搬运工作。我们显然知道，上图右下角的大块要复制左上角大块的内容。那么也就意味着，这个大块中的[1,1]位置(相对坐标)，要复制左上角大块的[1,1]位置的数据。其余位置以此类推。这种情况下，就是用i和j遍历当前操作区域内的所有坐标。i控制区间内的行，以p为初始值，步进值为1，它的范围是小于p+s，如下图所示：</p>
+<img alt="" src="../image/algorithm_1/5.jpg" />
+<p>j控制区间内的列，一个块中的列数当然也就是s的值。j初始值为s，步进值为1，范围是小于2*s。为什么是2*s，你自己画画草图就明白了。本来每个块的规模都等于它左边所有块的规模。</p>
+<p>块中的一个位置和他应该复制数据的位置之间的距离显然也就是规模s。区别就是左上还是左下罢了，而这个问题我们已经解决了。也就是说，数据来源的位置与当前位置的水平偏移量永远是-s，垂直偏移量看左上还是左下，左上就是-s，左下就是s。</p>
+<p>至此，我们就建立起这样的程序：不断通过s增大规模，对于每个规模，通过p选择这个规模下的所有块，对于每个块，使用i和j遍历地填充数据。这样程序结构就比较清晰了。</p>
+<ol class="arabic simple" start="4">
+<li>代码</li>
+</ol>
+<p>下面是我的代码。</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>    <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="err">\</span><span class="s">&quot;请输入选手数量(要求为2的指数):</span><span class="se">\&quot;</span><span class="s"> &lt;&lt; endl;    cin &gt;&gt; num;     // 为日程表分配内存    int **a = new int*[num+1];    for (int i = 0; i &lt; num+1; ++i)    {        a[i] = new int[num];    }     // 填充第一列    for(int i=0; i&lt;num+1; ++i)        a[i][0] = i;    for (int i = 0; i &lt; num; ++i)        a[0][i] = i;     // s(scale)控制本次处理的块的规模    for(int s=1; s&lt;num; s*=2)    {        // p(part)控制本次处理的块的起始位置，从上到下遍历同一规模的所有块的左上角位置        for(int p=1; p&lt;=num; p+=s)        {            // i和j循环本次处理的块内的所有内容            for(int i=p; i&lt;p+s; ++i)            {                for(int j=s; j&lt;2*s; ++j)                {                    // (p+s-1)/s是奇数，取左下                    if(((p+s-1)/s)%2!=0)                    {                        a[i][j] = a[i + s][j - s];                    }                    // (p+s-1)/s是偶数，取左上                    else                    {                        a[i][j] = a[i - s][j - s];                    }                }            }        }    }     // 输出    // 虽然二维数组实际上是5X4的，但是第一行仅仅是为了运算时取坐标方便和表示天数，没有意义，故不显示    cout &lt;&lt; </span><span class="se">\&quot;</span><span class="s">日程表</span><span class="se">\&quot;</span><span class="s"> &lt;&lt; endl;    cout &lt;&lt; </span><span class="se">\&quot;</span><span class="s">第一行为天数，第一列为选手号</span><span class="se">\&quot;</span><span class="s"> &lt;&lt; endl &lt;&lt; endl;    for (int i = 0; i &lt; num+1; ++i)    {        for (int j = 0; j &lt; num; ++j)        {            cout &lt;&lt; a[i][j] &lt;&lt; </span><span class="se">\&quot;</span><span class="s"> </span><span class="se">\&quot;</span><span class="s">;        }        cout &lt;&lt; endl;    }    cout &lt;&lt; endl;     // 清理    for (int i = 0; i &lt; num+1; ++i)    {        delete[] a[i];    }    delete[] a;    return 0;}</span>
+</pre></div>
+	
+						</div>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<div id="sidebar">
+					<div id="logo">
+						<h1><a href=..>梦呓</a></h1>
+					</div>
+					<div id="menu">
+						<ul>
+							<li ><a href=..>Home</a></li>
+							<li ><a href="../archives.html">Archives</a></li>
+						</ul>
+					</div>
+					<ul>
+						<li>
+							<h2>Categories</h2>
+							<ul>
+								 <li class="active"><a href="../category/suan-fa.html">算法</a></li>
+								 <li ><a href="../category/test.html">test</a></li>
+								 <li ><a href="../category/wei-fen-lei.html">未分类</a></li>
+							</ul>
+						</li>
+						<li>
+							<h2>Blogroll</h2>
+							<ul>
+                                                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                                                            <li><a href="http://python.org/">Python.org</a></li>
+                                                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                                                            <li><a href="#">You can modify those links in your config file</a></li>
+							</ul>
+						</li>
+                                                <li>
+                                                        <h2>Social</h2>
+                                                        <ul>
+                                                            <li><a href="../" rel="alternate">Flux Atom</a></li>
+                                                            <li><a href="#">You can add links in your config file</a></li>
+                                                            <li><a href="#">Another social link</a></li>
+                                                            <li><a href="https://github.com/DEAGS3000">GitHub</a></li>
+                                                        </ul>
+                                                </li><!-- /.social -->
+						<li>
+						        <h2>Tags</h2>
+						        <ul>
+                                                                <li><a href="../tag/shuo-ming.html">说明</a></li>
+                                                                <li><a href="../tag/test.html">test</a></li>
+                                                                <li><a href="../tag/suan-fa.html">算法</a></li>
+						        </ul>
+						</li>
+						
+						
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+
+<div id="footer">
+	<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">CSS Templates</a>.</p>
+	<p>Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
