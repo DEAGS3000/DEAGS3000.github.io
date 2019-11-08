@@ -6,7 +6,7 @@ pelican test
 :tags: test
 :category: test
 :slug: my-super-post
-:authors: Julian Chang
+:authors: IllusiveMan
 :summary: Short version for index and feeds
 
 this is just for testing pelican.
