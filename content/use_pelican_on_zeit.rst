@@ -14,6 +14,7 @@ ZEIT支持自动构建，也就是说，允许我们使用Pelican工程（托管
 为什么自动构建比手动构建后上传静态页面文件好呢？因为如果支持从GitHub自动构建，我们就可以脱离本地环境，直接在GitHub上面用WebIDE写文章了。毕竟在新设备重新配置环境挺烦的，我们要的只是写文章而已。
 
 ZEIT官方给出了Pelican的构建示例：`zeit/now-examples <https://github.com/zeit/now-examples/tree/master/pelican>`_
+
 和Netlify一样，ZEIT的构建也是依托于package.json的。官方的该文件内容如下：
 
 .. code-block:: json
