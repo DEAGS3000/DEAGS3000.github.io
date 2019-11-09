@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>梦呓 - test</title><link href="/" rel="alternate"></link><link href="/feeds/test.atom.xml" rel="self"></link><id>/</id><updated>2019-11-07T20:17:00+08:00</updated><entry><title>pelican test</title><link href="/my-super-post.html" rel="alternate"></link><published>2019-11-07T20:17:00+08:00</published><updated>2019-11-07T20:17:00+08:00</updated><author><name>IllusiveMan</name></author><id>tag:None,2019-11-07:/my-super-post.html</id><summary type="html">&lt;p class="first last"&gt;Short version for index and feeds&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;this is just for testing pelican.&lt;/p&gt;
-</content><category term="test"></category><category term="test"></category></entry></feed>

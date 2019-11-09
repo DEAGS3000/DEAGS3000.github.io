@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>梦呓 - 未分类</title><link href="/" rel="alternate"></link><link href="/feeds/wei-fen-lei.atom.xml" rel="self"></link><id>/</id><updated>2019-11-07T22:37:00+08:00</updated><entry><title>迁移到新博客</title><link href="/qian-yi-dao-xin-bo-ke.html" rel="alternate"></link><published>2019-11-07T22:37:00+08:00</published><updated>2019-11-07T22:37:00+08:00</updated><author><name>IllusiveMan</name></author><id>tag:None,2019-11-07:/qian-yi-dao-xin-bo-ke.html</id><summary type="html">&lt;p class="first last"&gt;Short version for index and feeds&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;之前一直用WordPress+腾讯云学生服务器做个人博客，也发了一些文章。当年头铁用国内服务器+国内域名，备案了好久，迁移还有点舍不得。可是毕业没有学生优惠之后，月费用从10块上升到50+，光用于博客实在小题大做了。正好看到学长的新博客用了Pelican，我也有样学样地试一试吧。我的博客托管于ZEIT，其实本来Netlify也是可选项，但谁让ZEIT做js出身，网站那么漂亮呢……&lt;/p&gt;
-</content><category term="未分类"></category><category term="说明"></category></entry></feed>
