@@ -5,7 +5,7 @@
   "description": "A Pelican based blog.",
   "main": "index.js",
   "scripts": {
-    "build": "pelican ./ -o output-s pelicanconf.py"
+    "build": "pelican ./ -o output -s pelicanconf.py"
   },
   "keywords": [],
   "author": "",
