@@ -28,7 +28,7 @@
 
 一个二人组的比赛日程表如下：
 
-.. image:: {static}/image/algorithm_1/01.jpg
+.. image:: {attach}/image/algorithm_1/01.jpg
   :align: center
 
 由于分组的时候，二人组里的两个人的编号一定是连续的，所以多个二人组的日程表直接上下合并即可：
@@ -40,7 +40,7 @@
 
 接下来完整的日程表也一样：
 
-.. image:: {static}/image/algorithm_1/13.jpg
+.. image:: {attach}/image/algorithm_1/13.jpg
   :align: center
 
 只不过这次对角复制的范围扩大了。也就是说，每次左下角的值赋给右上角，左上角的值赋给右下角的时候，四个区域是以当前表的大小来确定的，即正好填满这个表的四个区域。
@@ -72,7 +72,7 @@
 
 下面的图示更形象地展示了这些变量的含义：
 
-.. image:: {static}/image/algorithm_1/4.jpg
+.. image:: {attach}/image/algorithm_1/4.jpg
   :align: center
 
 上图中，圆角矩形表示受s控制的区域范围。它的意思是，将左上角或左下角的圆角矩形范围这么大一个区域的内容搬过来。
@@ -87,7 +87,7 @@ i和j用来遍历一个操作区域中的所有位置，那么我们怎么知道
 
 接下来是操作区域内具体位置的搬运工作。我们显然知道，上图右下角的大块要复制左上角大块的内容。那么也就意味着，这个大块中的[1,1]位置(相对坐标)，要复制左上角大块的[1,1]位置的数据。其余位置以此类推。这种情况下，就是用i和j遍历当前操作区域内的所有坐标。i控制区间内的行，以p为初始值，步进值为1，它的范围是小于p+s，如下图所示：
 
-.. image:: {static}/image/algorithm_1/5.jpg
+.. image:: {attach}/image/algorithm_1/5.jpg
   :width: 500px
   :align: center
 
