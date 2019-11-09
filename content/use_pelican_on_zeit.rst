@@ -36,6 +36,6 @@ ZEIT官方给出了Pelican的构建示例：`zeit/now-examples <https://github.c
 
 `pelican SOURCE_DIR -o OUTPUT_DIR -s CONF_FILE`
 
-可以看到，ZEIT的示例中将源文件目录设置为`./`，也就是整个工程的根目录。这样做会导致很多无关文件被纳入构建，报一堆错误。Pelican一般是在根目录建立一个content文件夹，将文章的源文件存储在里面；而输出目录是public，这个不用改。尽管Pelican默认是用一个output目录，但ZEIT不像Netlify，它不允许用户自行制定静态页面的产出目录，而是默认使用public目录。即便我们在ZEIT查看整个工程，我们也会发现输出目录不会是我们提供的output目录。这个不用管。
+可以看到，ZEIT的示例中将源文件目录设置为./，也就是整个工程的根目录。这样做会导致很多无关文件被纳入构建，报一堆错误。Pelican一般是在根目录建立一个content文件夹，将文章的源文件存储在里面；而输出目录是public，这个不用改。尽管Pelican默认是用一个output目录，但ZEIT不像Netlify，它不允许用户自行制定静态页面的产出目录，而是默认使用public目录。即便我们在ZEIT查看整个工程，我们也会发现输出目录不会是我们提供的output目录。这个不用管。
 
 综上，build命令应当是：`pelican content -o public -s publishconf.py`。
