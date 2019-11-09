@@ -8,7 +8,9 @@
 :authors: IllusiveMan
 :summary: 关于使用zeit.co部署Pelican博客的问题
 
-ZEIT是一个静态页面托管服务，类似于Netlify和GitHub Page。虽然Pelican可以正常运行在ZEIT，但很遗憾的是，ZEIT对Pelican并没有优化支持，而Hexo之类是支持的。没办法，谁让ZEIT是做js起家的呢……
+ZEIT是一个静态页面托管服务，类似于Netlify和GitHub Page。看上它是因为免费、自带https、自带CDN，以及……页面比Netlify漂亮……
+
+虽然Pelican可以正常运行在ZEIT，但很遗憾的是，ZEIT对Pelican并没有优化支持，而Hexo之类是支持的。没办法，谁让ZEIT是做js起家的呢……
 
 ZEIT支持自动构建，也就是说，允许我们使用Pelican工程（托管在Git）并在每次push时自动调用命令构建静态页面，就像在GitHub Page使用Jekyll一样（GitHub不支持Pelican自动构建，要用就得只上传构建好的静态页面）。
 为什么自动构建比手动构建后上传静态页面文件好呢？因为如果支持从GitHub自动构建，我们就可以脱离本地环境，直接在GitHub上面用WebIDE写文章了。毕竟在新设备重新配置环境挺烦的，我们要的只是写文章而已。
