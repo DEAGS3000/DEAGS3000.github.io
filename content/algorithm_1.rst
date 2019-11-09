@@ -29,7 +29,7 @@
 一个二人组的比赛日程表如下：
 
 .. image:: image/algorithm_1/01.jpg
-  :align: center
+  :align: middle
 
 由于分组的时候，二人组里的两个人的编号一定是连续的，所以多个二人组的日程表直接上下合并即可：
 
